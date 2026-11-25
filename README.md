@@ -1,0 +1,2 @@
+# PatBot-Voice-Controllable-SLAM-based-Automonous-Robot-with-Object-Detection-
+PatBot is an autnomous robot that autonomously maps an environment and estimates 3D locations of objects in the environment. After PatBot maps the environment entirely, users can command it to reach a target object in the environment or a spot close to the target object. While navigating, PatBot avoids obstacles and finds shortest path to target. 
