@@ -14,7 +14,7 @@ PatBot is an autonomous robot that maps an environment and estimates 3D location
 * Voice recognition: Vosk 0.22. 
 ## 4. OVERALL ARCHITECTURE
 * PatBot has 3 main systems: Explorer, Follower, and Detector. The overall operation flow of PatBot and how the systems interact with one another are shown below. In general, PatBot has two phases: (i) mapping and detecting and (ii) voice-controlled following.
-![architecture](./my_car_image_demdo/structure.png)
+![architecture](./my_car_image_demo/structure.png)
 ## 5. OPERATION FLOW
 ### Mapping and Detecting
 * In an unknown environment, Explorer receives 2D LiDAR scans from LiDAR sensor and determines which areas are unknown (undefined), free, or occupied. Explorer then identifies frontier positions (defined below) in the environment and drives PatBot to move to those positions. While PatBot moves, Explorer perceives the environment using LiDAR and get more knowledge about the environment. The accumulated knowledge will later be used to generate a map of the environment. 
