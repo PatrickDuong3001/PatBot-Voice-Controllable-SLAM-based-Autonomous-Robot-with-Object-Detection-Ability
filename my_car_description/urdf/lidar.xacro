@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">   
+    <!--link and joint-->
+    <link name="lidar_link"> 
+        <visual>
+            <geometry>
+                <cylinder radius="${lidar_radius}" length="${lidar_length}"/>
+            </geometry>
+            <material name="cyan" />
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </visual>
+        <inertial>
+            <mass value="${lidar_mass}" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="${lidar_mass*(3*lidar_radius*lidar_radius + lidar_length*lidar_length)/12}" ixy="0" ixz="0" 
+                     iyy="${lidar_mass*(3*lidar_radius*lidar_radius + lidar_length*lidar_length)/12}" iyz="0" 
+                     izz="${lidar_mass*lidar_radius*lidar_radius/2}" />
+        </inertial>
+        <collision>
+            <geometry>
+                <cylinder radius="${lidar_radius}" length="${lidar_length}"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </collision>
+    </link>
+
+    <joint name="base_lidar_joint" type="fixed">
+        <parent link="base_link" />
+        <child link="lidar_link" />
+        <origin xyz="${-body_length/15} 0 ${body_height/2 + lidar_length / 2}" rpy="0 0 0" /> <!--lidar rays come out of origin of the frame-->
+    </joint>
+
+    <!--gazebo plugin for lidar/laser scan-->
+    <gazebo reference="lidar_link">
+        <sensor name="lidar" type="gpu_lidar">
+            <lidar>
+                <scan>
+                    <horizontal>
+                        <!--reading count = samples * resolution-->
+                        <!--more samples = more laser rays = finer angular sampling (effect)-->
+                        <!--more resolution = more reading count w/o more rays (no effect)-->
+                        <samples>720</samples> <!--720 samples/rays over 360 degree-->
+                        <resolution>1.0</resolution>
+                        <min_angle>0.0</min_angle>
+                        <max_angle>${2*pi}</max_angle>  <!--360 degree-->
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.1</min>
+                    <max>5.0</max>
+                    <!--distance resolution along each ray-->
+                    <!--smaller distance resolution = more distance detail-->
+                    <!--like a ruler w/ finer marking, letting us express smaller differences-->
+                    <resolution>0.01</resolution> 
+                </range>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.01</stddev>
+                </noise>
+            </lidar>
+            <always_on>1</always_on>
+            <visualize>true</visualize> <!--enable us to visualize the ray in gazebo-->
+            <update_rate>20</update_rate>
+            <topic>scan</topic>
+            <gz_frame_id>lidar_link</gz_frame_id>
+        </sensor>
+    </gazebo>
+
+</robot> 

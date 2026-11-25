@@ -1,0 +1,909 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version='1.10'>
+  <world name='my_world'>
+    <physics name='1ms' type='ignored'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <gravity>0 0 -9.8000000000000007</gravity>
+    <plugin name='gz::sim::systems::Physics' filename='gz-sim-physics-system'/>
+    <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
+    <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
+    <plugin name='gz::sim::systems::Sensors' filename='gz-sim-sensors-system'>
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <scene>
+      <ambient>0.649999976 0.649999976 0.649999976 1</ambient>
+      <background>0.860000014 0.899999976 0.939999998 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <model name='floor'>
+      <static>true</static>
+      <pose>0 0 -0.10000000000000001 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>10.32 8.3200000000000003 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+              </ode>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>10.32 8.3200000000000003 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.779999971 0.800000012 0.810000002 1</ambient>
+            <diffuse>0.779999971 0.800000012 0.810000002 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='boundary_1'>
+      <static>true</static>
+      <pose>0 4.0800000000000001 0.59999999999999998 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>10.32 0.16 1.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>10.32 0.16 1.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.720000029 0.769999981 0.800000012 1</ambient>
+            <diffuse>0.720000029 0.769999981 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='boundary_2'>
+      <static>true</static>
+      <pose>0 -4.0800000000000001 0.59999999999999998 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>10.32 0.16 1.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>10.32 0.16 1.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.720000029 0.769999981 0.800000012 1</ambient>
+            <diffuse>0.720000029 0.769999981 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='boundary_3'>
+      <static>true</static>
+      <pose>5.0800000000000001 0 0.59999999999999998 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>0.16 8 1.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.16 8 1.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.720000029 0.769999981 0.800000012 1</ambient>
+            <diffuse>0.720000029 0.769999981 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='boundary_4'>
+      <static>true</static>
+      <pose>-5.0800000000000001 0 0.59999999999999998 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>0.16 8 1.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.16 8 1.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.720000029 0.769999981 0.800000012 1</ambient>
+            <diffuse>0.720000029 0.769999981 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='wall_1'>
+      <static>true</static>
+      <pose>-1.5 -3.25 0.59999999999999998 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>0.16 1.5 1.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.16 1.5 1.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.720000029 0.769999981 0.800000012 1</ambient>
+            <diffuse>0.720000029 0.769999981 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='wall_2'>
+      <static>true</static>
+      <pose>-1.5 0 0.59999999999999998 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>0.16 2.2000000000000002 1.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.16 2.2000000000000002 1.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.720000029 0.769999981 0.800000012 1</ambient>
+            <diffuse>0.720000029 0.769999981 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='wall_3'>
+      <static>true</static>
+      <pose>-1.5 3.25 0.59999999999999998 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>0.16 1.5 1.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.16 1.5 1.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.720000029 0.769999981 0.800000012 1</ambient>
+            <diffuse>0.720000029 0.769999981 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='wall_4'>
+      <static>true</static>
+      <pose>1.5 -3.25 0.59999999999999998 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>0.16 1.5 1.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.16 1.5 1.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.720000029 0.769999981 0.800000012 1</ambient>
+            <diffuse>0.720000029 0.769999981 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='wall_5'>
+      <static>true</static>
+      <pose>1.5 0 0.59999999999999998 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>0.16 2.2000000000000002 1.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.16 2.2000000000000002 1.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.720000029 0.769999981 0.800000012 1</ambient>
+            <diffuse>0.720000029 0.769999981 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='wall_6'>
+      <static>true</static>
+      <pose>1.5 3.25 0.59999999999999998 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>0.16 1.5 1.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.16 1.5 1.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.720000029 0.769999981 0.800000012 1</ambient>
+            <diffuse>0.720000029 0.769999981 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='wall_7'>
+      <static>true</static>
+      <pose>-4.2999999999999998 0 0.59999999999999998 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>1.3999999999999999 0.16 1.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>1.3999999999999999 0.16 1.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.720000029 0.769999981 0.800000012 1</ambient>
+            <diffuse>0.720000029 0.769999981 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='wall_8'>
+      <static>true</static>
+      <pose>-1.8899999999999999 0 0.59999999999999998 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>0.62 0.16 1.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.62 0.16 1.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.720000029 0.769999981 0.800000012 1</ambient>
+            <diffuse>0.720000029 0.769999981 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='wall_9'>
+      <static>true</static>
+      <pose>1.8899999999999999 0 0.59999999999999998 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>0.62 0.16 1.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.62 0.16 1.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.720000029 0.769999981 0.800000012 1</ambient>
+            <diffuse>0.720000029 0.769999981 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='wall_10'>
+      <static>true</static>
+      <pose>4.2999999999999998 0 0.59999999999999998 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>1.3999999999999999 0.16 1.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>1.3999999999999999 0.16 1.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.720000029 0.769999981 0.800000012 1</ambient>
+            <diffuse>0.720000029 0.769999981 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='ball'>
+      <pose>-4.3772501945495605 -3.2192232608795166 0.10999999940395355 0 0 0</pose>
+      <static>true</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/patrick/car1/install/my_car_description/share/my_car_description/../my_car_description/meshes/ball.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <sphere>
+              <radius>0.11</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='clock'>
+      <pose>3.0620999336242676 3.9990499019622803 0.62096399068832397 0 0 -1.5565560507771647</pose>
+      <static>true</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/patrick/car1/install/my_car_description/share/my_car_description/../my_car_description/meshes/clock.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='stop'>
+      <pose>-1.4216912984848022 0.40344303846359253 0.6654059886932373 0 0 0.014745200485964042</pose>
+      <static>true</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/patrick/car1/install/my_car_description/share/my_car_description/../my_car_description/meshes/stop.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <include>
+      <uri>file:///home/patrick/.gz/fuel/fuel.gazebosim.org/openrobotics/models/dining chair/1</uri>
+      <name>DiningChair</name>
+      <pose>3.1350307464599609 -2.7777154445648193 0 0 0 -3.1381800001905691</pose>
+    </include>
+    <include>
+      <uri>file:///home/patrick/.gz/fuel/fuel.gazebosim.org/openrobotics/models/minisofa/3</uri>
+      <name>MiniSofa</name>
+      <pose>3.7533600330353942 1.8140100240725758 -0.00089909509168879472 -1.4858762130662305e-07 -1.4640900091237503e-07 -0.77789921366480064</pose>
+    </include>
+    <include>
+      <uri>file:///home/patrick/.gz/fuel/fuel.gazebosim.org/openrobotics/models/lampandstand/3</uri>
+      <name>LampAndStand</name>
+      <pose>-1.903419017791748 3.7129099369049072 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/patrick/.gz/fuel/fuel.gazebosim.org/openrobotics/models/bed/1</uri>
+      <name>Bed</name>
+      <pose>-4.044647216796875 2.8115699291229248 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/patrick/.gz/fuel/fuel.gazebosim.org/openrobotics/models/bookshelf/4</uri>
+      <name>Bookshelf</name>
+      <pose>-0.45963504910469055 -3.9879443645477295 0 0 0 -3.1409400000014438</pose>
+    </include>
+    <include>
+      <uri>file:///home/patrick/.gz/fuel/fuel.gazebosim.org/openrobotics/models/metalcabinet/2</uri>
+      <name>MetalCabinet</name>
+      <pose>-0.0028881400357931852 3.7538621425628662 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/patrick/.gz/fuel/fuel.gazebosim.org/openrobotics/models/electrical box/4</uri>
+      <name>Electrical Box</name>
+      <pose>0.02097260020673275 -1.790850043296814 0 7.2737703429094755e-17 -7.5402654037790848e-17 -0.76741071002469963</pose>
+    </include>
+    <include>
+      <uri>file:///home/patrick/.gz/fuel/fuel.gazebosim.org/openrobotics/models/cardboard box/3</uri>
+      <name>cardboard_box</name>
+      <pose>-0.079360999166965471 1.3739700317382812 0.1499992176313204 1.3457380195030933e-18 -2.223483832575229e-18 1.023918738873177</pose>
+    </include>
+    <include>
+      <uri>file:///home/patrick/.gz/fuel/fuel.gazebosim.org/openrobotics/models/table/4</uri>
+      <name>Table</name>
+      <pose>-2.980032205581665 -2.4945478439331055 0 0 0 -1.4569599615845608</pose>
+    </include>
+    <include>
+      <uri>file:///home/patrick/.gz/fuel/fuel.gazebosim.org/openrobotics/models/cardboard box/3</uri>
+      <name>cardboard_box_0</name>
+      <pose>-2.163692951202393 1.8126277923583987 0.14999900262897667 -2.6526887572760914e-19 3.5186186888837877e-20 2.1826300021574827</pose>
+    </include>
+    <include>
+      <uri>file:///home/patrick/.gz/fuel/fuel.gazebosim.org/openrobotics/models/electrical box/4</uri>
+      <name>Electrical Box_0</name>
+      <pose>2.9258615970611572 -1.0861837863922119 -1.3009809820269701e-17 -5.9021801414475407e-17 -8.6559500585335493e-17 0.59844998225259527</pose>
+    </include>
+    <include>
+      <uri>file:///home/patrick/.gz/fuel/fuel.gazebosim.org/openrobotics/models/toolbox/2</uri>
+      <name>Toolbox</name>
+      <pose>1.7944049835205078 2.1310169696807861 -0.0047744330950081348 4.842767909327684e-12 0.020622899925187236 1.0521500550852945</pose>
+    </include>
+    <light name='sun' type='directional'>
+      <pose>0 0 10 0 0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>-0.40000000000000002 0.20000000000000001 -1</direction>
+      <diffuse>0.899999976 0.899999976 0.899999976 1</diffuse>
+      <specular>0.150000006 0.150000006 0.150000006 1</specular>
+      <attenuation>
+        <range>100</range>
+        <linear>0</linear>
+        <constant>1</constant>
+        <quadratic>0</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+  </world>
+</sdf>

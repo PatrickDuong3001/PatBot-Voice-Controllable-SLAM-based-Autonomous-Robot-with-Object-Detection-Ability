@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+    <!--properties-->
+    <xacro:property name="wheel_radius" value="0.07" />
+    <xacro:property name="wheel_length" value="0.04" />
+    <xacro:property name="wheel_mass" value="0.5" />
+    <xacro:property name="car_mass" value="2.0" />
+    
+    <xacro:property name="body_width" value="0.3" />
+    <xacro:property name="body_length" value="0.4" />
+    <xacro:property name="body_height" value="0.14" />
+
+    <xacro:property name="lidar_radius" value="0.035" />
+    <xacro:property name="lidar_length" value="0.04" />
+    <xacro:property name="lidar_mass" value="0.5" />
+
+    <xacro:property name="camera_radius" value="0.05" />
+    <xacro:property name="camera_length" value="0.01" />
+    <xacro:property name="camera_mass" value="0.1" />
+
+    <material name="black">
+        <color rgba="0 0 0 1" />
+    </material>
+
+    <material name="cyan">
+        <color rgba="0 1 1 1" />
+    </material>
+
+    <!--wheel macros-->
+    <xacro:macro name="wheel" params="prefix" >
+        <link name="${prefix}_wheel">
+            <visual>
+                <geometry>
+                    <cylinder radius="${wheel_radius}" length="${wheel_length}"/>
+                </geometry>
+                <material name="black" />
+                <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+            </visual>
+            <inertial>
+                <mass value="${wheel_mass}" />
+                <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+                <inertia ixx="${wheel_mass*(3*wheel_radius*wheel_radius + wheel_length*wheel_length)/12}" ixy="0" ixz="0" 
+                         iyy="${wheel_mass*(3*wheel_radius*wheel_radius + wheel_length*wheel_length)/12}" iyz="0" 
+                         izz="${wheel_mass*wheel_radius*wheel_radius/2}" />    
+            </inertial>
+            <collision>
+                <geometry>
+                    <cylinder radius="${wheel_radius}" length="${wheel_length}"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+            </collision>
+        </link>
+    </xacro:macro>
+
+</robot>

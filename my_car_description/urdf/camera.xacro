@@ -1,0 +1,67 @@
+<?xml version="1.0" ?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">   
+    <link name="camera_link" >
+        <visual>
+            <geometry>
+                <cylinder radius="${camera_radius}" length="${camera_length}" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 ${pi/2} 0" />
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="${camera_radius}" length="${camera_length}" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 ${pi/2} 0" />
+        </collision>
+        <inertial>
+            <mass value="${camera_mass}" />
+            <origin xyz="0 0 0" rpy="0 ${pi/2} 0" />
+            <inertia ixx="${camera_mass*(3*camera_radius*camera_radius + camera_length*camera_length)/12}" ixy="0" ixz="0" 
+                        iyy="${camera_mass*(3*camera_radius*camera_radius + camera_length*camera_length)/12}" iyz="0" 
+                        izz="${camera_mass*camera_radius*camera_radius/2}" />    
+        </inertial>
+    </link>
+
+    <link name="optical_link" />
+
+    <joint name="base_camera_joint" type="fixed">
+        <parent link="base_link" />
+        <child link="camera_link" />
+        <origin xyz="${(body_length + camera_length) / 2} 0 0.02" rpy="0 0 0" />
+    </joint>
+
+    <!--realign camera for yolo model-->
+    <joint name="camera_optical_joint" type="fixed">
+        <parent link="camera_link" />
+        <child link="optical_link" />
+        <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}" />
+    </joint>
+
+    <gazebo reference="camera_link">
+        <sensor name="camera" type="rgbd_camera">
+            <camera>
+                <horizontal_fov>${pi/2}</horizontal_fov>
+                <image>
+                    <!--camera resolution-->
+                    <width>1280</width>
+                    <height>720</height>
+                    <format>R8G8B8</format>
+                </image>
+                <clip>
+                    <near>0.1</near> <!--range of camera = 0.1m -10m-->
+                    <far>10</far>
+                </clip>
+                <optical_frame_id>optical_link</optical_frame_id>
+                <camera_info_topic>/camera/camera_info</camera_info_topic>
+            </camera>
+
+            <gz_frame_id>camera_link</gz_frame_id>
+            <always_on>1</always_on>
+            <update_rate>20</update_rate>
+            <visualize>true</visualize>
+            <topic>/camera</topic>
+        </sensor>
+    </gazebo>
+
+</robot>
