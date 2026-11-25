@@ -32,7 +32,7 @@ PatBot is an autonomous robot that maps an environment and estimates 3D location
   * SLAM Toolbox takes in LiDAR scans and PatBot’s odometry transform to estimate robot’s pose, and publish a 2D occupancy grid representing unknown, free, and occupied spaces in the environment. 
   * Nav2 then uses the occupancy grid and adds obstacles and inflation costs to the grid to create a global costmap, then uses the global costmap to plan a path to a goal pose. 
   * Nav2 also uses robot’s pose estimate and LiDAR scans to create a local costmap around PatBot, then uses the local costmap to avoid nearby obstacles while following the planned path to the goal pose.  
-  * For PatBot to move autonomously, I implemented frontier-based exploration for Explorer:
+* For PatBot to move autonomously, I implemented frontier-based exploration for Explorer:
   * Explorer first retrieves 2D occupancy grid, then finds all the frontier cells in the grid. A frontier cell is a free cell that borders at least one unknown cell in the occupancy grid. 
   * Explorer then groups frontier cells into clusters using BFS. A cluster should contain frontier cells that are connected to one another. 
   * Explorer filters out any cluster with less than 15 cells, because a cluster can be as small as having 1 cell, and w/o filtering, we will have a lot of clusters. In next step, we will compute centroid of each cluster; the less clusters there are, the fewer centroids Explorer needs to compute, thereby saving computing resources,
