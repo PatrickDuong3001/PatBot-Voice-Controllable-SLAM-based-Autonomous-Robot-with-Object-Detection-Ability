@@ -33,7 +33,7 @@ PatBot is an autonomous robot that maps an environment and estimates 3D location
 * A valid command has a format of Action + Object + Object Index (e.g., move to clock zero). When a command is valid, Follower recognizes a target object that users want PatBot to move to, retrieve the object’s 3D location from the log, and responds to users with “Okay” to acknowledge the command. Follower then drives PatBot to the location of the target object, or a spot close to the target object, depending on where the target object is and whether the path to the target object is traversable. 
 * When a command is invalid, Follower tells users that the command is invalid and performs no action until users wake PatBot up with wake word.
 ---
-Now, let’s dive into the details of each system (see 6-8).
+Now, let’s dive into the details of each system
 ---
 ## 6. EXPLORER
 * Explorer is implemented with [Nav2](https://docs.nav2.org/rolling/) and [SLAM Toolbox](https://github.com/SteveMacenski/slam_toolbox) frameworks. In short: 
