@@ -25,7 +25,7 @@ PatBot is an autonomous robot that maps an environment and estimates 3D location
 * A valid command has a format of Action + Object + Object Index (e.g., move to clock zero). When a command is valid, Follower recognizes a target object that users want PatBot to move to, retrieve the object’s 3D location from the log, and responds to users with “Okay” to acknowledge the command. Follower then drives PatBot to the location of the target object, or a spot close to the target object, depending on where the target object is and whether the path to the target object is traversable. 
 * When a command is invalid, Follower tells users that the command is invalid and performs no action until users wake PatBot up with wake word.
 ---
-→ Now, let’s dive into the details of each system (see 6-8).
+Now, let’s dive into the details of each system (see 6-8).
 ---
 ## 6. EXPLORER
 * Explorer is implemented with [Nav2](https://docs.nav2.org/rolling/) and [SLAM Toolbox](https://github.com/SteveMacenski/slam_toolbox) frameworks. In short: 
@@ -56,6 +56,9 @@ PatBot is an autonomous robot that maps an environment and estimates 3D location
 * Users are free to speak any types of commands, as long as the commands have the format (Action + Object + Object Index, in any order), the requested object is present in the yaml log, and there’s no negation (don’t, not) in the command. Actions include (move, proceed, head, go, jump, navigate, find, search, seek), indexes include 0-10, and objects include any types.
 * If the command is valid and the requested object is present, Follower says “Okay” and sends the object’s pose to Nav2, so PatBot can move to the object safely. After reaching the object, Follower says ”Found the object. Yay!”, and Vosk starts listening to wake word again.
 * If the command is invalid or the requested object is absent, Follower says “Invalid command” and laughs at users. Vosk then starts listening to wake word again.
+---
+Addition Information
+---
 ## 9. POTENTIAL IMPROVEMENTS
 * Use 3D LiDAR for better scanning and use Vox_Nav to consumes 3D LiDAR scans and generate 3D map of an environment. 
 * Allow PatBot to load an existing map and navigate an environment using the existing map, instead of re-navigating the environment even when there’s an existing map for the environment. Allow PatBot to check if the existing map is appropriate for the environment before using the map for navigating. 
