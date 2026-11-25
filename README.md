@@ -68,7 +68,7 @@ Now, let’s dive into the details of each system
 Addition Information
 ---
 ## 9. POTENTIAL IMPROVEMENTS
-* Use 3D LiDAR for better scanning and use Vox_Nav to consumes 3D LiDAR scans and generate 3D map of an environment. 
+* Use 3D LiDAR for better scanning and use Vox_Nav to take in 3D LiDAR scans and generate 3D map of an environment. 
 * Allow PatBot to load an existing map and navigate an environment using the existing map, instead of re-navigating the environment even when there’s an existing map for the environment. Allow PatBot to check if the existing map is appropriate for the environment before using the map for navigating. 
 * Highlight the objects and their locations right in the map of the environment for easier visual.
 * Reduce the 30-cm threshold for two location estimates to be viewed as representing the same object. 30 cm is still a pretty large threshold.
