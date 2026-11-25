@@ -14,7 +14,7 @@ PatBot is an autonomous robot that maps an environment and estimates 3D location
 * Voice recognition: Vosk 0.22. 
 ## 4. OVERALL ARCHITECTURE
 * PatBot has 3 main systems: Explorer, Follower, and Detector. The overall operation flow of PatBot and how the systems interact with one another are shown below. In general, PatBot has two phases: (i) mapping and detecting and (ii) voice-controlled following.
-![Alt text](https://github.com/PatrickDuong3001/PatBot-Voice-Controllable-SLAM-based-Autonomous-Robot-with-Object-Detection-Ability/blob/master/my_car_images/structure.png)
+![architecture](./my_car_images/structure.png)
 ## 5. OPERATION FLOW
 ### Mapping and Detecting
 * In an unknown environment, Explorer receives 2D LiDAR scans from LiDAR sensor and determines which areas are unknown (undefined), free, or occupied. Explorer then identifies frontier positions (defined below) in the environment and drives PatBot to move to those positions. While PatBot moves, Explorer perceives the environment using LiDAR and get more knowledge about the environment. The accumulated knowledge will later be used to generate a map of the environment. 
@@ -63,8 +63,8 @@ PatBot is an autonomous robot that maps an environment and estimates 3D location
 * Reduce the 30-cm threshold for two location estimates to be viewed as representing the same object. 30 cm is still a pretty large threshold.
 ## 10. PATBOT IMAGES
 * PatBot plans a path to navigate to an unknown space in an environment, follows the path, and detects object while moving. 
-![Alt text](https://github.com/PatrickDuong3001/PatBot-Voice-Controllable-SLAM-based-Autonomous-Robot-with-Object-Detection-Ability/blob/master/my_car_images/plan_move_detect.png)
+![nav](./my_car_images/plan_move_detect.png)
 * PatBot creates a map of objects in the environment after exploring the entire environment.
-![Alt text](https://github.com/PatrickDuong3001/PatBot-Voice-Controllable-SLAM-based-Autonomous-Robot-with-Object-Detection-Ability/blob/master/my_car_bringup/maps/map_2026-11-21_20-36-33.pgm)
+![map](./my_car_bringup/maps/map_2026-11-21_20-36-33.pgm)
 * PatBot logs 3D locations of objects in the environment that YOLO detects with over 80% confidence. 
-![Alt text](https://github.com/PatrickDuong3001/PatBot-Voice-Controllable-SLAM-based-Autonomous-Robot-with-Object-Detection-Ability/blob/master/my_car_detection/saved_objects/objs_log.yaml).
+![log](./my_car_detection/saved_objects/objs_log.yaml).
